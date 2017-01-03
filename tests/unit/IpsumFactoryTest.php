@@ -14,6 +14,12 @@ class IpsumFactoryTest extends \PHPUnit\Framework\TestCase
 	{
 	}
 
+    public function testCanInstantiateWords()
+    {
+        $this->IpsumFactory = new IpsumFactory('words');
+        $this->assertInstanceOf(IpsumFactory::class, $this->IpsumFactory);
+    }
+
     public function testInvalidIpsumType()
     {
         $this->expectException('InvalidArgumentException');

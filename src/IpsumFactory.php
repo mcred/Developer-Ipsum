@@ -23,11 +23,11 @@ class IpsumFactory
 	{
 		switch ($this->type) {
 			case 'words':
-				return new \Words($this->count,$this->length);
+				return new Words($this->count,$this->length);
 				break;
 
 			default:
-				throw new \InvalidArgumentException('Not a valid ipsum type.');
+				throw new InvalidArgumentException('Not a valid ipsum type.');
 				break;
 		}
 	}
