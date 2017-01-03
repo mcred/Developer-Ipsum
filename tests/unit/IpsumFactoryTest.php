@@ -12,6 +12,13 @@ class IpsumFactoryTest extends \PHPUnit\Framework\TestCase
 
 	public function setup()
 	{
-		$this->IpsumFactory = new IpsumFactory();
 	}
+
+    public function testInvalidIpsumType()
+    {
+        $this->expectException('InvalidArgumentException');
+        $this->expectExceptionMessage('Not a valid ipsum type.');
+
+        $this->IpsumFactory = new IpsumFactory('NotWords');
+    }
 }

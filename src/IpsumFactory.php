@@ -10,18 +10,18 @@ class IpsumFactory
 	private $count;
 	private $length;
 
-	public function __construct(string $type, int $count, int $length)
+	public function __construct(string $type, int $count = 0, int $length = 0)
 	{
-		$this->$type = $type;
-		$this->$count = $count;
-		$this->$length = $length;
+		$this->type = $type;
+		$this->count = $count;
+		$this->length = $length;
 
 		$this->setIpsumType();
 	}
 
 	public function setIpsumType()
 	{
-		switch ($this->$type) {
+		switch ($this->type) {
 			case 'words':
 				return new \Words($this->count,$this->length);
 				break;
