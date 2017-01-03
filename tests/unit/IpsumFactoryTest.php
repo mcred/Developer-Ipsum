@@ -1,7 +1,7 @@
 <?php
 
 /**
-* @covers \IpsumFactory
+* @covers IpsumFactory
 */
 class IpsumFactoryTest extends \PHPUnit\Framework\TestCase
 {
