@@ -1,0 +1,22 @@
+{
+    "name": "Developer Ipsum",
+    "description": "Software Developer based Lorem Ipsum",
+    "minimum-stability": "stable",
+    "license": "MIT",
+    "authors": [
+    {
+        "name": "Derek Smart",
+        "email": "derek@grindaga.com"
+    }
+    ],
+    "require": {
+        "phpunit/phpunit": "5.5.*",
+        "phploc/phploc": "*",
+        "theseer/autoload": "1.21.0",
+        "joshcam/mysqli-database-class": "dev-master",
+        "robmorgan/phinx": "0.5.3",
+        "phroute/phroute": "^2.1",
+        "zendframework/zend-diactoros": "^1.3",
+        "vlucas/phpdotenv": "^2.2"
+    }
+}
