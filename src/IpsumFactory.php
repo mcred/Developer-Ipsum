@@ -6,26 +6,12 @@
  */
 class IpsumFactory
 {
-    private $type;
-	private $count;
-	private $length;
-    private $assembler;
-
-	public function __construct(string $type, int $count = 0, int $length = 0)
+	public static function create(string $type, int $count = 0, int $length = 0)
 	{
-		$this->type = $type;
-		$this->count = $count;
-		$this->length = $length;
-		$this->assembler = new Assembler(new Vocabulary());
-
-		$this->setIpsumType();
-	}
-
-	public function setIpsumType()
-	{
-		switch ($this->type) {
+        $assembler = new Assembler(new Vocabulary());
+		switch ($type) {
 			case 'paragraphs':
-				return new Paragraphs($this->assembler,$this->count,$this->length);
+				return new Paragraphs($assembler,$count,$length);
 				break;
 
 			default:

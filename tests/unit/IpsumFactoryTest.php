@@ -16,7 +16,7 @@ class IpsumFactoryTest extends \PHPUnit\Framework\TestCase
 
     public function testCanInstantiateWords()
     {
-        $this->IpsumFactory = new IpsumFactory('paragraphs', 1, 1);
+        $this->IpsumFactory = new IpsumFactory();
         $this->assertInstanceOf(IpsumFactory::class, $this->IpsumFactory);
     }
 
@@ -25,6 +25,6 @@ class IpsumFactoryTest extends \PHPUnit\Framework\TestCase
         $this->expectException('InvalidArgumentException');
         $this->expectExceptionMessage('Not a valid ipsum type.');
 
-        $this->IpsumFactory = new IpsumFactory('NotWords');
+        $this->IpsumFactory = IpsumFactory::create('notParagraphs');
     }
 }
