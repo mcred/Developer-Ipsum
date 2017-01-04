@@ -5,7 +5,31 @@
  *
  * @author     Derek Smart <derek@grindaga.com>
  */
-abstract class Ipsum
+class Ipsum
 {
-    abstract public function generate();
+    protected $count;
+    protected $length;
+
+    public function __construct(int $count, int $length)
+    {
+        $this->count = $count;
+        $this->length = $length;
+
+        $this->checkCount();
+        $this->checkLength();
+    }
+
+    private function checkCount()
+    {
+        if($this->count < 1){
+            throw new InvalidArgumentException('Count must be 1 or greater.');
+        }
+    }
+
+    private function checkLength()
+    {
+        if($this->length < 1){
+            throw new InvalidArgumentException('Length must be 1 or greater.');
+        }
+    }
 }
