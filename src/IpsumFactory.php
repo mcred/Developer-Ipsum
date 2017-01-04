@@ -16,7 +16,7 @@ class IpsumFactory
 		$this->type = $type;
 		$this->count = $count;
 		$this->length = $length;
-		$this->assembler = new Assembler();
+		$this->assembler = new Assembler(new Vocabulary());
 
 		$this->setIpsumType();
 	}
@@ -24,8 +24,8 @@ class IpsumFactory
 	public function setIpsumType()
 	{
 		switch ($this->type) {
-			case 'words':
-				return new Words($this->assembler,$this->count,$this->length);
+			case 'paragraphs':
+				return new Paragraphs($this->assembler,$this->count,$this->length);
 				break;
 
 			default:

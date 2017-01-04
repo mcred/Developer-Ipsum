@@ -16,7 +16,7 @@ class IpsumFactoryTest extends \PHPUnit\Framework\TestCase
 
     public function testCanInstantiateWords()
     {
-        $this->IpsumFactory = new IpsumFactory('words', 1, 1);
+        $this->IpsumFactory = new IpsumFactory('paragraphs', 1, 1);
         $this->assertInstanceOf(IpsumFactory::class, $this->IpsumFactory);
     }
 
