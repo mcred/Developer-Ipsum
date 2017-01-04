@@ -7,6 +7,7 @@
  */
 class Assembler
 {
+    private $vocab;
     private $proper_nouns;
     private $verbs;
     private $conjuctions;
@@ -16,12 +17,18 @@ class Assembler
 
     public function __construct(Vocabulary $vocab)
     {
-        $this->proper_nouns = $vocab->setProperNouns();
-        $this->verbs = $vocab->setVerbs();
-        $this->conjuctions = $vocab->setConjunctions();
-        $this->prepositions = $vocab->setPrepositions();
-        $this->directObjects = $vocab->setDirectObjects();
+        $this->vocab = $vocab;
+        $this->resetVocab();
         $this->sentencePatterns = $this->setSentencePatterns();
+    }
+
+    private function resetVocab()
+    {
+        $this->proper_nouns = $this->vocab->setProperNouns();
+        $this->verbs = $this->vocab->setVerbs();
+        $this->conjuctions = $this->vocab->setConjunctions();
+        $this->prepositions = $this->vocab->setPrepositions();
+        $this->directObjects = $this->vocab->setDirectObjects();
     }
 
     private function setSentencePatterns()
@@ -79,6 +86,7 @@ class Assembler
 
     public function createSentence()
     {
+        $this->resetVocab();
         $pattern = explode(',', $this->getRandomSentencePattern());
 
         $return = '';
