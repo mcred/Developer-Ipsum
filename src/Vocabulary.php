@@ -1,12 +1,17 @@
 <?php
 
 /**
- * Main vocabulary.
+ * The customized Vocabulary used to generate random Ipsums
  *
  * @author     Derek Smart <derek@grindaga.com>
  */
 class Vocabulary
 {
+    /**
+     * set Specific Verbs
+     *
+     * @return array
+     */
     public function setVerbs() : array
     {
         return [
@@ -27,6 +32,11 @@ class Vocabulary
         ];
     }
 
+    /**
+     * set Specific Proper Nouns
+     *
+     * @return array
+     */
     public function setProperNouns() : array
     {
         return [
@@ -53,6 +63,11 @@ class Vocabulary
         ];
     }
 
+    /**
+     * set Specific Direct Objects
+     *
+     * @return array
+     */
     public function setDirectObjects() : array
     {
         return [
@@ -89,6 +104,11 @@ class Vocabulary
         ];
     }
 
+    /**
+     * set Specific Conjunctions
+     *
+     * @return array
+     */
     public function setConjunctions() : array
     {
         return [
@@ -102,6 +122,11 @@ class Vocabulary
         ];
     }
 
+    /**
+     * set Specific Prepositions
+     *
+     * @return array
+     */
     public function setPrepositions() : array
     {
         return [
