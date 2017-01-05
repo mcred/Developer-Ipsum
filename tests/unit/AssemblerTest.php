@@ -20,6 +20,6 @@ class AssemblerTest extends \PHPUnit\Framework\TestCase
 
     public function testCreateSentence()
     {
-        var_dump($this->Assembler->createSentence());
+        $this->assertInternalType('string', $this->Assembler->createSentence());
     }
 }
