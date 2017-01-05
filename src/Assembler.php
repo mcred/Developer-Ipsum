@@ -92,7 +92,8 @@ class Assembler
         return [
             'PN,C,PN,V,P,DO',
             'PN,V,P,DO,C,P,DO',
-            'PN,V,P,DO'
+            'PN,V,P,DO',
+            'PN,V,C,PN,V,P,DO'
         ];
     }
 
@@ -113,6 +114,22 @@ class Assembler
     }
 
     /**
+     * Append the proper article to a word.
+     *
+     * @param  string $word
+     *
+     * @return string
+     */
+    private function appendArticle(string $word) : string
+    {
+        if(preg_match_all('/[aeiou]/i',$word[0])){
+            return 'an ' . $word;
+        } else {
+            return 'a ' . $word;
+        }
+    }
+
+    /**
      * Switch between all parts of speech to get the proper word.
      *
      * @param  string $part
@@ -123,7 +140,7 @@ class Assembler
     {
         switch ($part) {
             case 'PN':
-                return $this->getUniqueWord('proper_nouns');
+                return 'the ' . $this->getUniqueWord('proper_nouns');
                 break;
             case 'V':
                 return $this->getUniqueWord('verbs');
@@ -135,7 +152,7 @@ class Assembler
                 return $this->getUniqueWord('prepositions');
                 break;
             case 'DO':
-                return $this->getUniqueWord('directObjects');
+                return $this->appendArticle($this->getUniqueWord('directObjects'));
                 break;
         }
     }
@@ -164,6 +181,6 @@ class Assembler
         foreach ($pattern as $part) {
             $return .= $this->getWordFromPart($part) . ' ';
         }
-        return rtrim($return) . '.';
+        return ucfirst(rtrim($return)) . '.';
     }
 }
