@@ -7,9 +7,26 @@
  */
 class Ipsum
 {
+    /**
+     * requested count of items
+     *
+     * @var int
+     */
     protected $count;
+
+    /**
+     * requests length of items
+     *
+     * @var int
+     */
     protected $length;
 
+    /**
+     * Constructor of Ipsum Class
+     *
+     * @param int $count
+     * @param int $length
+     */
     public function __construct(int $count, int $length)
     {
         $this->count = $count;
@@ -19,6 +36,12 @@ class Ipsum
         $this->checkLength();
     }
 
+    /**
+     * Ensure that count is valid
+     *
+     * @throws Exception
+     * @return void
+     */
     private function checkCount() : void
     {
         if($this->count < 1){
@@ -26,6 +49,12 @@ class Ipsum
         }
     }
 
+    /**
+     * Encure that length is valid
+     *
+     * @throws Exception
+     * @return void
+     */
     private function checkLength() : void
     {
         if($this->length < 1){
