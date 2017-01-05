@@ -20,6 +20,12 @@ class IpsumFactoryTest extends \PHPUnit\Framework\TestCase
         $this->assertInstanceOf(IpsumFactory::class, $this->IpsumFactory);
     }
 
+    public function testCanSetParagraphs()
+    {
+        $paragraph = IpsumFactory::create('paragraphs', 1, 1);
+        $this->assertInstanceOf(Paragraphs::class, $paragraph);
+    }
+
     public function testInvalidIpsumType()
     {
         $this->expectException('InvalidArgumentException');
