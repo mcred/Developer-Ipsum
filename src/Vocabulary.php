@@ -7,7 +7,7 @@
  */
 class Vocabulary
 {
-    public function setVerbs()
+    public function setVerbs() : array
     {
         return [
             'deploy',
@@ -27,7 +27,7 @@ class Vocabulary
         ];
     }
 
-    public function setProperNouns()
+    public function setProperNouns() : array
     {
         return [
             'World Class',
@@ -53,7 +53,7 @@ class Vocabulary
         ];
     }
 
-    public function setDirectObjects()
+    public function setDirectObjects() : array
     {
         return [
             'developer',
@@ -89,7 +89,7 @@ class Vocabulary
         ];
     }
 
-    public function setConjunctions()
+    public function setConjunctions() : array
     {
         return [
             'and',
@@ -102,7 +102,7 @@ class Vocabulary
         ];
     }
 
-    public function setPrepositions()
+    public function setPrepositions() : array
     {
         return [
             'a',

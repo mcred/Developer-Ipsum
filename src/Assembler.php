@@ -22,7 +22,7 @@ class Assembler
         $this->sentencePatterns = $this->setSentencePatterns();
     }
 
-    private function resetVocab()
+    private function resetVocab() : void
     {
         $this->proper_nouns = $this->vocab->setProperNouns();
         $this->verbs = $this->vocab->setVerbs();
@@ -31,7 +31,7 @@ class Assembler
         $this->directObjects = $this->vocab->setDirectObjects();
     }
 
-    private function setSentencePatterns()
+    private function setSentencePatterns() : array
     {
         return [
             'PN,C,PN,V,P,DO',
@@ -69,12 +69,12 @@ class Assembler
         }
     }
 
-    private function getRandomSentencePattern()
+    private function getRandomSentencePattern() : string
     {
         return $this->sentencePatterns[array_rand($this->sentencePatterns)];
     }
 
-    public function createSentence()
+    public function createSentence() : string
     {
         $this->resetVocab();
         $pattern = explode(',', $this->getRandomSentencePattern());

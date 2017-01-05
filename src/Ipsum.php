@@ -19,14 +19,14 @@ class Ipsum
         $this->checkLength();
     }
 
-    private function checkCount()
+    private function checkCount() : void
     {
         if($this->count < 1){
             throw new InvalidArgumentException('Count must be 1 or greater.');
         }
     }
 
-    private function checkLength()
+    private function checkLength() : void
     {
         if($this->length < 1){
             throw new InvalidArgumentException('Length must be 1 or greater.');
