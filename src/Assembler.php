@@ -7,14 +7,60 @@
  */
 class Assembler
 {
+    /**
+     * Vocabulary Class
+     *
+     * @var Vocabulary
+     */
     private $vocab;
+
+    /**
+     * Array of Proper Nouns
+     *
+     * @var array
+     */
     private $proper_nouns;
+
+    /**
+     * Array of Verbs
+     *
+     * @var array
+     */
     private $verbs;
+
+    /**
+     * Array of Conjuctions
+     *
+     * @var array
+     */
     private $conjuctions;
+
+    /**
+     * Array of Prepositions
+     *
+     * @var array
+     */
     private $prepositions;
+
+    /**
+     * [$directObjects description]
+     *
+     * @var [type]
+     */
     private $directObjects;
+
+    /**
+     * Array of Sentence Patterns
+     *
+     * @var array
+     */
     private $sentencePatterns;
 
+    /**
+     * Constructor of Assembler
+     *
+     * @param Vocabulary $vocab
+     */
     public function __construct(Vocabulary $vocab)
     {
         $this->vocab = $vocab;
@@ -22,6 +68,11 @@ class Assembler
         $this->sentencePatterns = $this->setSentencePatterns();
     }
 
+    /**
+     * Resets Vocabulary arrays to default values
+     *
+     * @return void
+     */
     private function resetVocab() : void
     {
         $this->proper_nouns = $this->vocab->setProperNouns();
@@ -31,6 +82,11 @@ class Assembler
         $this->directObjects = $this->vocab->setDirectObjects();
     }
 
+    /**
+     * Initial set of Sentence Patterns
+     *
+     * @return array
+     */
     private function setSentencePatterns() : array
     {
         return [
@@ -40,6 +96,14 @@ class Assembler
         ];
     }
 
+    /**
+     * Gets a word from an array and removes it so it will not
+     * be duplicated later.
+     *
+     * @param  string $array_name
+     *
+     * @return string
+     */
     private function getUniqueWord(string $array_name) : string
     {
         $key = array_rand($this->$array_name);
@@ -48,6 +112,13 @@ class Assembler
         return $word;
     }
 
+    /**
+     * Switch between all parts of speech to get the proper word.
+     *
+     * @param  string $part
+     *
+     * @return string
+     */
     private function getWordFromPart(string $part) : string
     {
         switch ($part) {
@@ -69,11 +140,21 @@ class Assembler
         }
     }
 
+    /**
+     * Get a random sentence pattern.
+     *
+     * @return string
+     */
     private function getRandomSentencePattern() : string
     {
         return $this->sentencePatterns[array_rand($this->sentencePatterns)];
     }
 
+    /**
+     * Primary function to create a unique sentence.
+     *
+     * @return string
+     */
     public function createSentence() : string
     {
         $this->resetVocab();
