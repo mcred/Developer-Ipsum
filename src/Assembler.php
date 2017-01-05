@@ -66,9 +66,6 @@ class Assembler
             case 'DO':
                 return $this->getUniqueWord('directObjects');
                 break;
-            default:
-                throw new InvalidArgumentException('Not a valid sentence part.');
-                break;
         }
     }
 

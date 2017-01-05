@@ -10,7 +10,7 @@
     }
     ],
     "require": {
-        "phpunit/phpunit": "5.5.*",
+        "phpunit/phpunit": "5.7.*",
         "phploc/phploc": "*",
         "theseer/autoload": "1.21.0",
         "joshcam/mysqli-database-class": "dev-master",
