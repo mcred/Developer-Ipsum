@@ -6,6 +6,16 @@
  */
 class IpsumFactory
 {
+    /**
+     * Return a concrete instance of an Ipsum Class. 
+     *
+     * @param  string  $type
+     * @param  integer $count
+     * @param  integer $length
+     *
+     * @throws Exception
+     * @return object
+     */
 	public static function create(string $type, int $count = 0, int $length = 0)
 	{
         $assembler = new Assembler(new Vocabulary());
