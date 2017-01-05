@@ -40,38 +40,31 @@ class Assembler
         ];
     }
 
+    private function getUniqueWord(string $array_name) : string
+    {
+        $key = array_rand($this->$array_name);
+        $word = $this->$array_name[$key];
+        unset($this->$array_name[$key]);
+        return $word;
+    }
+
     private function getWordFromPart(string $part) : string
     {
         switch ($part) {
             case 'PN':
-                $key = array_rand($this->proper_nouns);
-                $word = $this->proper_nouns[$key];
-                unset($this->proper_nouns[$key]);
-                return $word;
+                return $this->getUniqueWord('proper_nouns');
                 break;
             case 'V':
-                $key = array_rand($this->verbs);
-                $word = $this->verbs[$key];
-                unset($this->verbs[$key]);
-                return $word;
+                return $this->getUniqueWord('verbs');
                 break;
             case 'C':
-                $key = array_rand($this->conjuctions);
-                $word = $this->conjuctions[$key];
-                unset($this->conjuctions[$key]);
-                return $word;
+                return $this->getUniqueWord('conjuctions');
                 break;
             case 'P':
-                $key = array_rand($this->prepositions);
-                $word = $this->prepositions[$key];
-                unset($this->prepositions[$key]);
-                return $word;
+                return $this->getUniqueWord('prepositions');
                 break;
             case 'DO':
-                $key = array_rand($this->directObjects);
-                $word = $this->directObjects[$key];
-                unset($this->directObjects[$key]);
-                return $word;
+                return $this->getUniqueWord('directObjects');
                 break;
             default:
                 throw new InvalidArgumentException('Not a valid sentence part.');
