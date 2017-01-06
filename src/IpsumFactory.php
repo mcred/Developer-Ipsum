@@ -6,8 +6,25 @@
  */
 class IpsumFactory
 {
+	/**
+	 * Instaniated Vocabulary Class
+	 *
+	 * @var Vocabulary
+	 */
+	private $Vocabulary;
+
+	/**
+	 * Contstuctor of IpsumFactory
+	 *
+	 * @param VOCAB $vocab
+	 */
+	public function __construct(VOCAB $vocab)
+    {
+		$this->Vocabulary = new Vocabulary($vocab);
+    }
+
     /**
-     * Return a concrete instance of an Ipsum Class. 
+     * Return a concrete instance of an Ipsum Class.
      *
      * @param  string  $type
      * @param  integer $count
@@ -16,9 +33,9 @@ class IpsumFactory
      * @throws Exception
      * @return object
      */
-	public static function create(string $type, int $count = 0, int $length = 0)
+	public function create(string $type, int $count = 0, int $length = 0)
 	{
-        $assembler = new Assembler(new Vocabulary());
+        $assembler = new Assembler($this->Vocabulary);
 		switch ($type) {
 			case 'paragraphs':
 				return new Paragraphs($assembler,$count,$length);
