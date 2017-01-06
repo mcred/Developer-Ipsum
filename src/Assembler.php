@@ -152,7 +152,7 @@ class Assembler
                 return $this->getUniqueWord('prepositions');
                 break;
             case 'DO':
-                return $this->appendArticle($this->getUniqueWord('directObjects'));
+                return $this->getUniqueWord('directObjects');
                 break;
         }
     }
