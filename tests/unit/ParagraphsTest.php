@@ -6,10 +6,12 @@
 class ParagraphsTest extends \PHPUnit\Framework\TestCase
 {
     private $assembler;
+    private $vocab;
 
 	public function setup()
 	{
-        $this->assembler = new Assembler(new Vocabulary());
+        $this->vocab = new VOCAB();
+        $this->assembler = new Assembler(new Vocabulary($this->vocab));
 	}
 
     public function testCanInstantiateParagraphs()

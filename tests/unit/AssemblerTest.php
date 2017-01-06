@@ -10,7 +10,8 @@ class AssemblerTest extends \PHPUnit\Framework\TestCase
 
 	public function setup()
 	{
-        $this->Assembler = new Assembler(new Vocabulary());
+        $this->vocab = new VOCAB();
+        $this->Assembler = new Assembler(new Vocabulary($this->vocab));
 	}
 
     public function testCanInstantiateAssembler()
