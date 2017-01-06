@@ -8,28 +8,101 @@
 class Vocabulary
 {
     /**
+     * VOCAB class with definitions
+     *
+     * @var VOCAB
+     */
+    private $vocab;
+
+	/**
+	 * Constructor of Vocabulary
+	 *
+	 * @param VOCAB $vocab
+	 */
+    public function __construct(VOCAB $vocab)
+    {
+        $this->vocab = $vocab;
+        $this->hasProperNouns($this->vocab);
+		$this->hasVerbs($this->vocab);
+		$this->hasDirectObjects($this->vocab);
+		$this->hasPrepositions($this->vocab);
+		$this->hasConjunctions($this->vocab);
+    }
+
+	/**
+	 * Validate that part of speech exists in VOCAB class
+	 *
+	 * @param VOCAB  $vocab
+	 * @param string $part
+	 */
+    private function validateVocabPart(VOCAB $vocab, string $part) : void
+	{
+		if(!is_array($this->vocab->$part)){
+			throw new InvalidArgumentException($part . ' are required.');
+		}
+		if(!array_key_exists(0, $this->vocab->$part) || !is_string($this->vocab->$part[0])){
+			throw new InvalidArgumentException($part . ' must contain strings.');
+		}
+	}
+
+	/**
+	 * validate that Proper Nouns are set
+	 *
+	 * @param VOCAB $vocab
+	 */
+	private function hasProperNouns(VOCAB $vocab) : void
+	{
+		$this->validateVocabPart($vocab, 'proper_nouns');
+	}
+
+	/**
+	 * validate that Verbs are set
+	 *
+	 * @param VOCAB $vocab
+	 */
+	private function hasVerbs(VOCAB $vocab) : void
+	{
+		$this->validateVocabPart($vocab, 'verbs');
+	}
+
+	/**
+	 * validate that Direct Objects are set
+	 *
+	 * @param VOCAB $vocab
+	 */
+	private function hasDirectObjects(VOCAB $vocab) : void
+	{
+		$this->validateVocabPart($vocab, 'direct_objects');
+	}
+
+	/**
+	 * validate that Prepositions are set
+	 *
+	 * @param VOCAB $vocab
+	 */
+	private function hasPrepositions(VOCAB $vocab) : void
+	{
+		$this->validateVocabPart($vocab, 'prepositions');
+	}
+
+	/**
+	 * validate that Conjunctions are set
+	 *
+	 * @param VOCAB $vocab
+	 */
+	private function hasConjunctions(VOCAB $vocab) : void
+	{
+		$this->validateVocabPart($vocab, 'conjunctions');
+	}
+
+    /**
      * set Specific Verbs
      *
      * @return array
      */
     public function setVerbs() : array
     {
-        return [
-            'deploy',
-            'commit',
-            'revert',
-            'cherry pick',
-            'tune out',
-            'apply',
-            'maintenance',
-            'design',
-            'build',
-            'develop',
-            'refactor',
-            'refuctor',
-            'regress',
-            'benchmark'
-        ];
+        return $this->vocab->verbs;
     }
 
     /**
@@ -39,28 +112,7 @@ class Vocabulary
      */
     public function setProperNouns() : array
     {
-        return [
-            'World Class',
-            'APIs',
-            'Tabs vs Spaces',
-            'GitHub',
-            'BitBucket',
-            'Whiteboard',
-            'Jira',
-            'Atlassian',
-            'HighFive',
-            'Manual Keyboard',
-            'Atom',
-            'IDE',
-            'DIV Soup',
-            'Demo Node',
-            'UAT',
-            'Slack',
-            'Stack Overflow',
-            'Middle Out',
-            'Snack Dick',
-            'SaaS'
-        ];
+        return $this->vocab->proper_nouns;
     }
 
     /**
@@ -70,38 +122,7 @@ class Vocabulary
      */
     public function setDirectObjects() : array
     {
-        return [
-            'developer',
-            'agile',
-            'standing desk',
-            'coffee breaks',
-            'ego',
-            'methodology',
-            'deploys',
-            'waterfall',
-            'ops',
-            'sprint',
-            'nutter butter',
-            'stash',
-            'server',
-            'configuration',
-            'assets',
-            'UX',
-            'UI',
-            'blockers',
-            'low-hanging fruit',
-            'prod',
-            'staging',
-            'production',
-            'bug',
-            'cache',
-            'exception handling',
-            'snake-case',
-            'humpCase',
-            'doctype',
-            'fear-driven development',
-            'ego-driven development',
-        ];
+        return $this->vocab->direct_objects;
     }
 
     /**
@@ -111,15 +132,7 @@ class Vocabulary
      */
     public function setConjunctions() : array
     {
-        return [
-            'and',
-            'nor',
-            'but',
-            'or',
-            'yet',
-            'so',
-            'for'
-        ];
+        return $this->vocab->conjunctions;
     }
 
     /**
@@ -129,155 +142,6 @@ class Vocabulary
      */
     public function setPrepositions() : array
     {
-        return [
-            'a',
-            'an',
-            'abeam',
-            'aboard',
-            'about',
-            'above',
-            'abreast',
-            'abroad',
-            'absent',
-            'across',
-            'adjacent',
-            'after',
-            'against',
-            'along',
-            'alongside',
-            'amid',
-            'among',
-            'around',
-            'as',
-            'astride',
-            'at',
-            'atop',
-            'bar',
-            'before',
-            'behind',
-            'below',
-            'beneath',
-            'beside',
-            'besides',
-            'between',
-            'beyond',
-            'but',
-            'by',
-            'come',
-            'despite',
-            'down',
-            'during',
-            'except',
-            'for',
-            'from',
-            'in',
-            'inside',
-            'into',
-            'less',
-            'like',
-            'minus',
-            'near',
-            'notwithstanding',
-            'of',
-            'off',
-            'on',
-            'onto',
-            'opposite',
-            'out',
-            'outside',
-            'over',
-            'pace',
-            'past',
-            'per',
-            'post',
-            'pre',
-            'pro',
-            'qua',
-            're',
-            'sans',
-            'save',
-            'short',
-            'since',
-            'than',
-            'through',
-            'throughout',
-            'to',
-            'toward',
-            'towards',
-            'under',
-            'underneath',
-            'unlike',
-            'until',
-            'up',
-            'upon',
-            'upside',
-            'versus',
-            'via',
-            'vice',
-            'vis-à-vis',
-            'with',
-            'within',
-            'without',
-            'worth',
-            'according to',
-            'adjacent to',
-            'ahead of',
-            'apart from',
-            'as for',
-            'as of',
-            'as per',
-            'as regards',
-            'aside from',
-            'astern of',
-            'back to',
-            'because of',
-            'close to',
-            'due to',
-            'except for',
-            'far from',
-            'inside of',
-            'instead of',
-            'left of',
-            'near to',
-            'next to',
-            'opposite of',
-            'opposite to',
-            'out from',
-            'out of',
-            'outside of',
-            'owing to',
-            'prior to',
-            'pursuant to',
-            'rather than',
-            'regardless of',
-            'right of',
-            'subsequent to',
-            'such as',
-            'thanks to',
-            'up to',
-            'as far as',
-            'as opposed to',
-            'as soon as',
-            'as well as',
-            'at the behest of',
-            'by means of',
-            'by virtue of',
-            'for the sake of',
-            'in accordance with',
-            'in addition to',
-            'in case of',
-            'in front of',
-            'in lieu of',
-            'in order to',
-            'in place of',
-            'in point of',
-            'in spite of',
-            'on account of',
-            'on behalf of',
-            'on top of',
-            'with regard',
-            'with respect to',
-            'with a view to'
-        ];
+        return $this->vocab->prepositions;
     }
 }
