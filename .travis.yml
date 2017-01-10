@@ -5,5 +5,4 @@ install:
   - composer install
   - ant
 script:
-  - ant
   - phpunit
