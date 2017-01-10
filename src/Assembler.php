@@ -19,7 +19,7 @@ class Assembler
      *
      * @var array
      */
-    private $proper_nouns;
+    private $properNouns;
 
     /**
      * Array of Verbs
@@ -75,7 +75,7 @@ class Assembler
      */
     private function resetVocab() : void
     {
-        $this->proper_nouns = $this->vocab->setProperNouns();
+        $this->properNouns = $this->vocab->setProperNouns();
         $this->verbs = $this->vocab->setVerbs();
         $this->conjuctions = $this->vocab->setConjunctions();
         $this->prepositions = $this->vocab->setPrepositions();
@@ -101,15 +101,15 @@ class Assembler
      * Gets a word from an array and removes it so it will not
      * be duplicated later.
      *
-     * @param  string $array_name
+     * @param  string $arrayName
      *
      * @return string
      */
-    private function getUniqueWord(string $array_name) : string
+    private function getUniqueWord(string $arrayName) : string
     {
-        $key = array_rand($this->$array_name);
-        $word = $this->$array_name[$key];
-        unset($this->$array_name[$key]);
+        $key = array_rand($this->$arrayName);
+        $word = $this->$arrayName[$key];
+        unset($this->$arrayName[$key]);
         return $word;
     }
 
@@ -140,7 +140,7 @@ class Assembler
     {
         switch ($part) {
             case 'PN':
-                return 'the ' . $this->getUniqueWord('proper_nouns');
+                return 'the ' . $this->getUniqueWord('properNouns');
                 break;
             case 'V':
                 return $this->getUniqueWord('verbs');
