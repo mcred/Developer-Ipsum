@@ -4,4 +4,6 @@ php:
 install:
   - composer install
   - ant
-script: ant
+script:
+  - ant
+  - phpunit
