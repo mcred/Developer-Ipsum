@@ -114,23 +114,6 @@ class Assembler
     }
 
     /**
-     * Append the proper article to a word.
-     *
-     * @param  string $word
-     *
-     * @return string
-     */
-    private function appendArticle(string $word) : string
-    {
-        if(preg_match_all('/[aeiou]/i',$word[0])){
-            return 'an ' . $word;
-        }
-        if(!preg_match_all('/[aeiou]/i',$word[0])) {
-            return 'a ' . $word;
-        }
-    }
-
-    /**
      * Switch between all parts of speech to get the proper word.
      *
      * @param  string $part
