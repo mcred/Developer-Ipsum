@@ -2,7 +2,7 @@ language: php
 php:
   - '7.1'
 install:
-  - composer require phpunit/phpunit:4.8.* satooshi/php-coveralls:dev-master
+  - composer require satooshi/php-coveralls:dev-master
   - composer install
   - ant
 script:
