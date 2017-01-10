@@ -18,7 +18,8 @@
         "phroute/phroute": "^2.1",
         "zendframework/zend-diactoros": "^1.3",
         "vlucas/phpdotenv": "^2.2",
-        "siriusphp/validation": "^2.1"
+        "siriusphp/validation": "^2.1",
+        "satooshi/php-coveralls": "^1.0"
     },
     "require-dev": {
       "codeclimate/php-test-reporter": "dev-master"
