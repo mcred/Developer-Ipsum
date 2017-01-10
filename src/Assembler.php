@@ -124,7 +124,8 @@ class Assembler
     {
         if(preg_match_all('/[aeiou]/i',$word[0])){
             return 'an ' . $word;
-        } else {
+        }
+        if(!preg_match_all('/[aeiou]/i',$word[0])) {
             return 'a ' . $word;
         }
     }
