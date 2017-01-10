@@ -37,10 +37,10 @@ class Vocabulary
 	 */
     private function validateVocabPart(VOCAB $vocab, string $part) : void
 	{
-		if(!is_array($this->vocab->$part)){
+		if(!is_array($vocab->$part)){
 			throw new InvalidArgumentException($part . ' are required.');
 		}
-		if(!array_key_exists(0, $this->vocab->$part) || !is_string($this->vocab->$part[0])){
+		if(!array_key_exists(0, $vocab->$part) || !is_string($vocab->$part[0])){
 			throw new InvalidArgumentException($part . ' must contain strings.');
 		}
 	}
