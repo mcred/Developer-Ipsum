@@ -21,7 +21,6 @@
         "siriusphp/validation": "^2.1"
     },
     "require-dev": {
-      "codeclimate/php-test-reporter": "dev-master",
-      "satooshi/php-coveralls": "^1.0"
+      "codeclimate/php-test-reporter": "dev-master"
     }
 }
