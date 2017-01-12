@@ -16,7 +16,7 @@ $ composer install
 $ ant
 ```
 ### Usage
-<p>Implementation example is located in the `generate.php` file. Require the `vendor` and `src` autoload files. A vocab file is required to construct the main `IpsumFactory`. You can replace the vocab file with your own, if you like. Once the `IpsumFactory` has been instantiated, create the type of Ipsum you would like, how many entities you want and how many items each entity should contain. The example below would create 4 paragraphs with 8 sentences each. Run `php generate.php` to see your output.</p>
+Implementation example is located in the `generate.php` file. Require the `vendor` and `src` autoload files. A vocab file is required to construct the main `IpsumFactory`. You can replace the vocab file with your own, if you like. Once the `IpsumFactory` has been instantiated, create the type of Ipsum you would like, how many entities you want and how many items each entity should contain. The example below would create 4 paragraphs with 8 sentences each. Run `php generate.php` to see your output.
 ```php
 <?php
 require(__DIR__."/vendor/autoload.php");
