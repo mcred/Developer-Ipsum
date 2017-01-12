@@ -16,7 +16,6 @@ class Lists extends Ipsum
      */
     public function __construct(Assembler $assembler, int $count, int $length)
     {
-        $this->assembler = $assembler;
         parent::__construct($assembler, $count, $length);
     }
 

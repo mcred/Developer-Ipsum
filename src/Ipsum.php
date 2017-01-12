@@ -38,6 +38,7 @@ class Ipsum
     {
         $this->count = $count;
         $this->length = $length;
+        $this->assembler = $assembler;
 
         $this->checkCount();
         $this->checkLength();
