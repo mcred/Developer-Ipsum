@@ -22,12 +22,19 @@ class Ipsum
     protected $length;
 
     /**
+     * Instance of Assembler class
+     *
+     * @var Assembler
+     */
+    protected $assembler;
+
+    /**
      * Constructor of Ipsum Class
      *
      * @param int $count
      * @param int $length
      */
-    public function __construct(int $count, int $length)
+    public function __construct(Assembler $assembler, int $count, int $length)
     {
         $this->count = $count;
         $this->length = $length;

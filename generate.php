@@ -4,7 +4,7 @@ require(__DIR__."/src/autoload.php");
 require(__DIR__."/config/vocab.php");
 
 $factory = new IpsumFactory(new VOCAB());
-$paragraphs = $factory->create('paragraphs', 4, 8);
+$paragraphs = $factory->create('lists', 4, 8);
 echo $paragraphs->generate();
 
 ?>

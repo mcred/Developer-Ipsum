@@ -8,13 +8,6 @@
 class Paragraphs extends Ipsum
 {
     /**
-     * Instance of Assembler class
-     *
-     * @var Assembler
-     */
-    private $assembler;
-
-    /**
      * Constructor of Paragraphs
      *
      * @param Assembler $assembler
@@ -24,7 +17,7 @@ class Paragraphs extends Ipsum
     public function __construct(Assembler $assembler, int $count, int $length)
     {
         $this->assembler = $assembler;
-        parent::__construct($count, $length);
+        parent::__construct($assembler, $count, $length);
     }
 
     /**
