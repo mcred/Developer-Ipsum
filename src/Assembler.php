@@ -65,7 +65,7 @@ class Assembler
     {
         $this->vocab = $vocab;
         $this->resetVocab();
-        $this->sentencePatterns = $this->setSentencePatterns();
+        $this->sentencePatterns = $this->vocab->setSentencePatterns();
     }
 
     /**
@@ -80,21 +80,6 @@ class Assembler
         $this->conjuctions = $this->vocab->setConjunctions();
         $this->prepositions = $this->vocab->setPrepositions();
         $this->directObjects = $this->vocab->setDirectObjects();
-    }
-
-    /**
-     * Initial set of Sentence Patterns
-     *
-     * @return array
-     */
-    private function setSentencePatterns() : array
-    {
-        return [
-            'PN,C,PN,V,P,DO',
-            'PN,V,P,DO,C,P,DO',
-            'PN,V,P,DO',
-            'PN,V,C,PN,V,P,DO'
-        ];
     }
 
     /**
@@ -137,6 +122,9 @@ class Assembler
                 break;
             case 'DO':
                 return $this->getUniqueWord('directObjects');
+                break;
+            default:
+                throw new InvalidArgumentException('Invalid Part of Speech.');
                 break;
         }
     }
