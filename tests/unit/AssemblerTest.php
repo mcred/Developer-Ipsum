@@ -40,4 +40,12 @@ class AssemblerTest extends \PHPUnit\Framework\TestCase
 
         $this->Assembler->createSentence();
     }
+
+    public function testCanGetWord()
+    {
+        $this->vocab->proper_nouns = ['Test'];
+        $this->Assembler = new Assembler(new Vocabulary($this->vocab->reveal()));
+
+        $this->AssertEquals('Test', $this->Assembler->getRandomWord());
+    }
 }

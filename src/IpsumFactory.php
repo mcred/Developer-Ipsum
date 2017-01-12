@@ -41,6 +41,10 @@ class IpsumFactory
 				return new Paragraphs($assembler,$count,$length);
 				break;
 
+			case 'lists':
+				return new Lists($assembler,$count,$length);
+				break;
+
 			default:
 				throw new InvalidArgumentException('Not a valid ipsum type.');
 				break;

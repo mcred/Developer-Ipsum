@@ -155,4 +155,9 @@ class Assembler
         }
         return ucfirst(rtrim($return)) . '.';
     }
+
+    public function getRandomWord() : string
+    {
+        return $this->properNouns[array_rand($this->properNouns)];
+    }
 }

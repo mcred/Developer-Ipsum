@@ -34,4 +34,10 @@ class IpsumFactoryTest extends \PHPUnit\Framework\TestCase
 
         $this->IpsumFactory->create('notParagraphs');
     }
+
+    public function testCanSetLists()
+    {
+        $paragraph = $this->IpsumFactory->create('lists', 1, 1);
+        $this->assertInstanceOf(Lists::class, $paragraph);
+    }
 }

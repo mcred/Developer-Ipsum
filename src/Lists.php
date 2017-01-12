@@ -1,14 +1,14 @@
 <?php
 
 /**
- * The main Paragraphs Ipsum class
+ * The main Lists Ipsum class
  *
  * @author     Derek Smart <derek@grindaga.com>
  */
-class Paragraphs extends Ipsum
+class Lists extends Ipsum
 {
     /**
-     * Constructor of Paragraphs
+     * Constructor of Lists
      *
      * @param Assembler $assembler
      * @param int       $count
@@ -18,14 +18,14 @@ class Paragraphs extends Ipsum
     {
         parent::__construct($assembler, $count, $length);
     }
-
+    
     /**
-     * create properly formatted Paragraphs
+     * create properly formatted Lists
      *
      * @return string
      */
     public function generate() : string
     {
-        return $this->getMethodByLength('createSentence');
+        return $this->getMethodByLength('getRandomWord');
     }
 }
