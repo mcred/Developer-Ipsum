@@ -123,6 +123,9 @@ class Assembler
             case 'DO':
                 return $this->getUniqueWord('directObjects');
                 break;
+            default:
+                throw new InvalidArgumentException('Invalid Part of Speech.');
+                break;
         }
     }
 
