@@ -23,6 +23,7 @@ class Vocabulary
     {
         $this->vocab = $vocab;
         $this->hasProperNouns($this->vocab);
+        $this->hasSentencePatterns($this->vocab);
 		$this->hasVerbs($this->vocab);
 		$this->hasDirectObjects($this->vocab);
 		$this->hasPrepositions($this->vocab);
@@ -53,6 +54,16 @@ class Vocabulary
 	private function hasProperNouns(VOCAB $vocab) : void
 	{
 		$this->validateVocabPart($vocab, 'proper_nouns');
+	}
+
+	/**
+	 * validate that Sentence Patterns are set
+	 *
+	 * @param VOCAB $vocab
+	 */
+	private function hasSentencePatterns(VOCAB $vocab) : void
+	{
+		$this->validateVocabPart($vocab, 'sentencePatterns');
 	}
 
 	/**
