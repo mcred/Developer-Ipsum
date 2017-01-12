@@ -2,6 +2,7 @@
 
 /**
 * @covers Paragraphs
+* @covers Ipsum
 */
 class ParagraphsTest extends \PHPUnit\Framework\TestCase
 {

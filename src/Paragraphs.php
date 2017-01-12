@@ -20,40 +20,12 @@ class Paragraphs extends Ipsum
     }
 
     /**
-     * get requested Length of formatted Sentences.
-     *
-     * @return string
-     */
-    private function getSentences() : string
-    {
-        $return = '';
-        for ($i=0; $i < $this->length; $i++) {
-            $return .= $this->assembler->createSentence() . ' ';
-        }
-        return $return;
-    }
-
-    /**
-     * get requested Count of formatted Paragraphs.
-     *
-     * @return string
-     */
-    private function getParagraphs() : string
-    {
-        $return = '';
-        for ($i=0; $i < $this->count; $i++) {
-            $return .= $this->getSentences() . PHP_EOL;
-        }
-        return $return;
-    }
-
-    /**
      * create properly formatted Paragraphs
      *
      * @return string
      */
     public function generate() : string
     {
-        return $this->getParagraphs();
+        return $this->getMethodByLength('createSentence');
     }
 }

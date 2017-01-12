@@ -18,35 +18,7 @@ class Lists extends Ipsum
     {
         parent::__construct($assembler, $count, $length);
     }
-
-    /**
-     * get requested Length of formatted Words.
-     *
-     * @return string
-     */
-    private function getWords() : string
-    {
-        $return = '';
-        for ($i=0; $i < $this->length; $i++) {
-            $return .= $this->assembler->getRandomWord() . ', ';
-        }
-        return $return;
-    }
-
-    /**
-     * get requested Count of formatted Lists.
-     *
-     * @return string
-     */
-    private function getLists() : string
-    {
-        $return = '';
-        for ($i=0; $i < $this->count; $i++) {
-            $return .= $this->getWords() . PHP_EOL;
-        }
-        return $return;
-    }
-
+    
     /**
      * create properly formatted Lists
      *
@@ -54,6 +26,6 @@ class Lists extends Ipsum
      */
     public function generate() : string
     {
-        return $this->getLists();
+        return $this->getMethodByLength('getRandomWord');
     }
 }

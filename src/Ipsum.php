@@ -69,4 +69,36 @@ class Ipsum
             throw new InvalidArgumentException('Length must be 1 or greater.');
         }
     }
+
+    /**
+     * call proper Assembler method for count
+     *
+     * @param  string $method
+     *
+     * @return string
+     */
+    private function getMethodByCount(string $method) : string
+    {
+        $return = '';
+        for ($i=0; $i < $this->length; $i++) {
+            $return .= $this->assembler->$method() . ' ';
+        }
+        return $return;
+    }
+
+    /**
+     * get requested Length of formatted Ipsum Type.
+     *
+     * @param  string $method
+     *
+     * @return string
+     */
+    protected function getMethodByLength(string $method) : string
+    {
+        $return = '';
+        for ($i=0; $i < $this->count; $i++) {
+            $return .= $this->getMethodByCount($method) . PHP_EOL;
+        }
+        return $return;
+    }
 }
