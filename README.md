@@ -28,3 +28,6 @@ $paragraphs = $factory->create('paragraphs', 4, 8);
 echo $paragraphs->generate();
 ?>
 ```
+### Available Ipsum Types
+* Paragraphs
+* Lists
