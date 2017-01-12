@@ -3,6 +3,14 @@
  * Configuration Vocabulary for Ipsum Generator
  */
 class VOCAB {
+
+    public $sentencePatterns = [
+        'PN,C,PN,V,P,DO',
+        'PN,V,P,DO,C,P,DO',
+        'PN,V,P,DO',
+        'PN,V,C,PN,V,P,DO'
+    ];
+
     public $proper_nouns = [
         'World Class',
         'APIs',

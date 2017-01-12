@@ -96,6 +96,16 @@ class Vocabulary
 	}
 
     /**
+     * Initial set of Sentence Patterns
+     *
+     * @return array
+     */
+    public function setSentencePatterns() : array
+    {
+        return $this->vocab->sentencePatterns;
+    }
+
+    /**
      * set Specific Verbs
      *
      * @return array
