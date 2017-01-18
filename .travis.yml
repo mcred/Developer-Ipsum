@@ -7,7 +7,6 @@ install:
   - ant
 script:
   - phpunit
-  - sonar-scanner
 addons:
   code_climate:
     repo_token: 56febcaeeb8e4a22efa0e5c8dd2ea0c824cc5c9fec32ecc6f35a1154e2d892d5
@@ -17,3 +16,4 @@ addons:
 after_success:
   - vendor/bin/test-reporter
   - vendor/bin/coveralls -v
+  - sonar-scanner
