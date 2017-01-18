@@ -11,8 +11,7 @@ addons:
   code_climate:
     repo_token: 56febcaeeb8e4a22efa0e5c8dd2ea0c824cc5c9fec32ecc6f35a1154e2d892d5
   sonarqube:
-    token:
-      secure: "rp6RZlfgpFzDtbZbR0a8tLqw26P2dabuhxLF968to/I4ZePO64SmWymSO0ohORQLQvjXoGJ4tg2/hS0+I+/3wWHgJFwJ54yijbDJVOvk2gEKLIubBXYS2OWKErbPcgT4qTPkK3+CmoqBN8uQwoTbBJB7GH5ub0QXpoJtaFd0AkMkZjNOUYYQGooOpNgaBHFc7mEpKQPeqq7Gt8Q1dt8cOHrPRLFtXfDvOENdReNl9mB0IzSaTcu64xYu1B1NGIaACZe/Bwk3NsTclGy1MNHtOAMUC9GiGsrE6a7jXGeI94p8f2xsicGDgWjzLm2S517xvUSIF0EeGSvxlLL9Mxna8vX7TwDAgxuqoqSvl45BCV+6A0ttVKwPXdEWDxByPToQJlR6QZtP1hfNiJxsMRQyP7ca1+PHThgamZtHu/q6UM7IjGlBE1LbtT28iQuS9mcnZDQ4UWkNW51t38x4PwkBBbWAPCFw2+ZuSVi3cOYqz1II17mKIQShHiIDDRaX5f9atN+MEbb7EFX8Jte8yXAHClyTRmzrHmtpolW9B874VYNeQjWslgXKUTjjstC5NhlMKW4qgFqnBK8w5x+HfcS7JQ+OPiZs8Jj5AOlCj3JDw0HZGbBYFqA86VOEHS/QK1xtIJZIchPLKj/No/N3pJZiTqxFdQi6HSSiZVmiGkQEvzk="
+    token: SONAR_TOKEN
 after_success:
   - vendor/bin/test-reporter
   - vendor/bin/coveralls -v
