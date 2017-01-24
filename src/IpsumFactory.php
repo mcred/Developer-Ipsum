@@ -6,21 +6,21 @@
  */
 class IpsumFactory
 {
-	/**
-	 * Instaniated Vocabulary Class
-	 *
-	 * @var Vocabulary
-	 */
-	private $Vocabulary;
+    /**
+     * Instaniated Vocabulary Class
+     *
+     * @var Vocabulary
+     */
+    private $Vocabulary;
 
-	/**
-	 * Contstuctor of IpsumFactory
-	 *
-	 * @param VOCAB $vocab
-	 */
-	public function __construct(VOCAB $vocab)
+    /**
+     * Contstuctor of IpsumFactory
+     *
+     * @param VOCAB $vocab
+     */
+    public function __construct(VOCAB $vocab)
     {
-		$this->Vocabulary = new Vocabulary($vocab);
+        $this->Vocabulary = new Vocabulary($vocab);
     }
 
     /**
@@ -33,21 +33,18 @@ class IpsumFactory
      * @throws Exception
      * @return object
      */
-	public function create(string $type, int $count = 0, int $length = 0)
-	{
+    public function create(string $type, int $count = 0, int $length = 0)
+    {
         $assembler = new Assembler($this->Vocabulary);
-		switch ($type) {
-			case 'paragraphs':
-				return new Paragraphs($assembler,$count,$length);
-				break;
+        switch ($type) {
+            case 'paragraphs':
+                return new Paragraphs($assembler, $count, $length);
 
-			case 'lists':
-				return new Lists($assembler,$count,$length);
-				break;
+            case 'lists':
+                return new Lists($assembler, $count, $length);
 
-			default:
-				throw new InvalidArgumentException('Not a valid ipsum type.');
-				break;
-		}
-	}
+            default:
+                throw new InvalidArgumentException('Not a valid ipsum type.');
+        }
+    }
 }

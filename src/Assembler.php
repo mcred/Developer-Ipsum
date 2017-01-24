@@ -110,22 +110,16 @@ class Assembler
         switch ($part) {
             case 'PN':
                 return 'the ' . $this->getUniqueWord('properNouns');
-                break;
             case 'V':
                 return $this->getUniqueWord('verbs');
-                break;
             case 'C':
                 return $this->getUniqueWord('conjuctions');
-                break;
             case 'P':
                 return $this->getUniqueWord('prepositions');
-                break;
             case 'DO':
                 return $this->getUniqueWord('directObjects');
-                break;
             default:
                 throw new InvalidArgumentException('Invalid Part of Speech.');
-                break;
         }
     }
 
