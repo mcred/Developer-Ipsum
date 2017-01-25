@@ -2,13 +2,13 @@
 /**
  * Configuration Vocabulary for Ipsum Generator
  */
-class VOCAB {
-
+class VOCAB
+{
     public $sentencePatterns = [
-        'PN,C,PN,V,P,DO',
-        'PN,V,P,DO,C,P,DO',
-        'PN,V,P,DO',
-        'PN,V,C,PN,V,P,DO'
+        'properNouns,conjuctions,properNouns,verbs,prepositions,directObjects',
+        'properNouns,verbs,prepositions,directObjects,conjuctions,prepositions,directObjects',
+        'properNouns,verbs,prepositions,directObjects',
+        'properNouns,verbs,conjuctions,properNouns,verbs,prepositions,directObjects'
     ];
 
     public $proper_nouns = [

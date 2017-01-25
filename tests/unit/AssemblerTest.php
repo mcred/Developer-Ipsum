@@ -10,22 +10,22 @@ class AssemblerTest extends \PHPUnit\Framework\TestCase
     private $prophet;
     private $vocab;
 
-	public function setup()
-	{
+    public function setup()
+    {
         $this->prophet = new Prophecy\Prophet;
         $this->vocab = $this->prophet->prophesize("VOCAB");
-	}
+    }
 
     public function testCanInstantiateAssembler()
     {
-        $this->vocab->sentencePatterns = ['PN,C,PN,V,P,DO'];
+        $this->vocab->sentencePatterns = ['properNouns,conjuctions,properNouns,verbs,prepositions,directObjects'];
         $this->Assembler = new Assembler(new Vocabulary($this->vocab->reveal()));
         $this->assertInstanceOf(Assembler::class, $this->Assembler);
     }
 
     public function testCreateSentence()
     {
-        $this->vocab->sentencePatterns = ['PN,C,PN,V,P,DO'];
+        $this->vocab->sentencePatterns = ['properNouns,conjuctions,properNouns,verbs,prepositions,directObjects'];
         $this->Assembler = new Assembler(new Vocabulary($this->vocab->reveal()));
         $this->assertInternalType('string', $this->Assembler->createSentence());
     }

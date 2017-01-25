@@ -108,16 +108,13 @@ class Assembler
     private function getWordFromPart(string $part) : string
     {
         switch ($part) {
-            case 'PN':
+            case 'properNouns':
                 return 'the ' . $this->getUniqueWord('properNouns');
-            case 'V':
-                return $this->getUniqueWord('verbs');
-            case 'C':
-                return $this->getUniqueWord('conjuctions');
-            case 'P':
-                return $this->getUniqueWord('prepositions');
-            case 'DO':
-                return $this->getUniqueWord('directObjects');
+            case 'verbs':
+            case 'conjuctions':
+            case 'prepositions':
+            case 'directObjects':
+                return $this->getUniqueWord($part);
             default:
                 throw new InvalidArgumentException('Invalid Part of Speech.');
         }
