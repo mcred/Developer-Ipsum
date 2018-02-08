@@ -3,12 +3,15 @@
 [![Code Climate](https://codeclimate.com/github/mcred/Developer-Ipsum/badges/gpa.svg)](https://codeclimate.com/github/mcred/Developer-Ipsum)
 [![Test Coverage](https://codeclimate.com/github/mcred/Developer-Ipsum/badges/coverage.svg)](https://codeclimate.com/github/mcred/Developer-Ipsum/coverage)
 <p>Developer Ipsum is an Ipsum generator based on the terms used by the software development team at my work. Shout out to <a href="https://payscape.com" target="_blank">Payscape</a>.</p>
+
 ### Requirements
+
 * [PHP 7.1](http://php.net/)
 * [Apache Ant](http://ant.apache.org/)
 * [Composer](https://getcomposer.org/)
 
 ### Installation
+
 ```
 $ git clone https://github.com/mcred/Developer-Ipsum.git
 $ cd Developer-Ipsum/
